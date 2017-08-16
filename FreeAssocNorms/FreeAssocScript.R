@@ -45,17 +45,19 @@ summary(FA$categ)
 nrow(FA)
 
 su$gr2 = "Disagreement";
-su[su$categ == "1_1" | su$categ == "2_2",]$gr2 = "Certain Agreement";
+su[su$categ == "1_1" | su$categ == "2_2",]$gr2 = "CA";
 su[su$categ == "1_?1" | su$categ == "2_?2" | 
         su$categ == "?1_1" | su$categ == "?2_2" | 
-        su$categ == "?1_?1" | su$categ == "?2_?2",]$gr2 = "Uncertain Agreement";
-su[su$categ == "1_2" | su$categ == "2_1",]$gr2 = "Certain Disagreement";
+        su$categ == "?1_?1" | su$categ == "?2_?2",]$gr2 = "UA";
+su[su$categ == "1_2" | su$categ == "2_1",]$gr2 = "CD";
 su[su$categ == "?1_?2" | su$categ == "?1_2" | su$categ == "?2_?1" |
         su$categ == "?2_1" | su$categ == "1_?2" | 
-        su$categ == "2_?1",]$gr2 = "Uncertain Disagreement";
+        su$categ == "2_?1",]$gr2 = "UD";
 
 xtabs(dum~gr, data=su)
 
-ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr2,scale="free_x")
+#ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr2,scale="free_x")
+     #This still has panels
 
+ggplot(su, aes(x=gr2,y=dum))+geom_bar(stat="identity", width = .9)
 
