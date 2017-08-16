@@ -2,7 +2,7 @@
 #library("ggplot", lib.loc="/Library/Frameworks/R.framework/Versions/3.1/Resources/library")
 
 #set working directory
-setwd("/Users/caitlin/Box Sync/1-Box Folders/Toronto Project/Norming/FreeAssocNorms")
+setwd("/Users/caitlin/Box Sync/1-Box Folders/Toronto Project/Git/HomonymNorms/FreeAssocNorms")
 
 #Read in data
 FA = read.csv("./free_associates.csv")
@@ -36,4 +36,26 @@ su$s_categ = "All"
 su[su$categ == "1_1" | su$categ == "2_2",]$s_categ = su[su$categ == "1_1" | su$categ == "2_2",]$categ
 
 ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr,scale="free_x")
+
+
+#Caitlin's work
+
+#Proportion  agreement, disagreement, certain agreement, certain disagreement
+summary(FA$categ)
+nrow(FA)
+
+su$gr2 = "Disagreement";
+su[su$categ == "1_1" | su$categ == "2_2",]$gr2 = "Certain Agreement";
+su[su$categ == "1_?1" | su$categ == "2_?2" | 
+        su$categ == "?1_1" | su$categ == "?2_2" | 
+        su$categ == "?1_?1" | su$categ == "?2_?2",]$gr2 = "Uncertain Agreement";
+su[su$categ == "1_2" | su$categ == "2_1",]$gr2 = "Certain Disagreement";
+su[su$categ == "?1_?2" | su$categ == "?1_2" | su$categ == "?2_?1" |
+        su$categ == "?2_1" | su$categ == "1_?2" | 
+        su$categ == "2_?1",]$gr2 = "Uncertain Disagreement";
+
+xtabs(dum~gr, data=su)
+
+ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr2,scale="free_x")
+
 
