@@ -1,0 +1,17 @@
+{
+    "contents" : "#Load packages needed\n#library(\"ggplot\", lib.loc=\"/Library/Frameworks/R.framework/Versions/3.1/Resources/library\")\n\n#set working directory\nsetwd(\"/Users/caitlin/Box Sync/1-Box Folders/Toronto Project/Norming/FreeAssocNorms\")\n\n#Read in data\nFA = read.csv(\"./free_associates.csv\")\n\n#Delete cases for which Meaning_R1 or Meaning_R2 = \"-\". \n#There were 39 cases where Meaning_R1 = \"-\" and 84 cases where Meaning_R2 = '-'\nFA = FA[FA$Meaning_R1  %in% c(\"1\",\"2\",\"?1\",\"?2\") & FA$Meaning_R2  %in% c(\"1\",\"2\",\"?1\",\"?2\"),]\nFA = droplevels(FA)\n\n#Convert Meaning_R1 and Meaning_R2 to character vectors of the concatenated values\nFA$categ = as.factor(paste(FA$Meaning_R1,FA$Meaning_R2, sep = \"_\"))\nFA$dum = 1;\n\n#\nn = nrow(FA)\nsu = aggregate(dum ~ categ, data = FA, FUN=length)\nsu$dum = su$dum/n*100\n\nggplot(su, aes(x=categ,y=dum))+geom_bar(stat=\"identity\")\n\nsu$gr = \"Disagreement\";\n\nsu[su$categ == \"1_1\" | su$categ == \"2_2\",]$gr = \"Certain Agreement\";\nsu[su$categ == \"1_?1\" | su$categ == \"2_?2\" | \n        su$categ == \"?1_1\" | su$categ == \"?2_2\" | \n        su$categ == \"?1_?1\" | su$categ == \"?2_?2\",]$gr = \"Uncertain Agreement\";\n\n#override very low representative levels\n\nsu$s_categ = \"All\"\nsu[su$categ == \"1_1\" | su$categ == \"2_2\",]$s_categ = su[su$categ == \"1_1\" | su$categ == \"2_2\",]$categ\n\nggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat=\"identity\", width = 1) + facet_grid(~gr,scale=\"free_x\")\n\n",
+    "created" : 1502812333990.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "787870383",
+    "id" : "9621D918",
+    "lastKnownWriteTime" : 1502888208,
+    "path" : "~/Box Sync/1-Box Folders/Toronto Project/Norming/FreeAssocNorms/FreeAssocScript.R",
+    "project_path" : "FreeAssocScript.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
