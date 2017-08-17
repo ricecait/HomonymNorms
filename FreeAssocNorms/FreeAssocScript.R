@@ -147,7 +147,7 @@ eDomNorms <- merge(eDomNorms, Twilley, by.x = "word", by.y = "word", all.x = TRU
           #Rerun everything, check to see if correlates with ELP
 
 #merge in to file
-merged <- merge(eDomNorms, all, by.x = "word", by.y = "probe")
+merged <- merge(eDomNorms, all, by.x = "word", by.y = "probe", all.x = TRUE)
 
 #Correlation between eDom norms and FA norms
      #Note: might want to do Spearman or nonparametric correlation.
@@ -261,4 +261,23 @@ b = as.numeric(FM$RT)
 c = cbind(a,b)
 #---> shows strongest cor is U, followed by biggestFAN, then biggest (which were comparable, but
 #opposite directions
+
+#Note: there is a conflict that needs to be resolved with OLD - there are variations. 
+acc.lm = lm(ACC ~Length + biggest +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = merged)
+print(summary(acc.lm))
+
+rt.lm = lm(RT ~Length + biggest +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = merged)
+print(summary(rt.lm))
+
+
+#Drop all observations from merged that have more than 10 senses
+nohybrids <- merged[merged$NumSenses < 10, ]
+
+
+acc.lm = lm(ACC ~Length + biggest +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
+print(summary(acc.lm))
+
+rt.lm = lm(RT ~Length + biggest +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
+print(summary(rt.lm))
+     
 
