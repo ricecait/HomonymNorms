@@ -1,11 +1,12 @@
 #Load packages needed
-#install.packages("corrplot")
+library(ggplot)
+library(corrplot)
 
 #set working directory
 setwd("/Users/caitlin/Box Sync/1-Box Folders/Toronto Project/Git/HomonymNorms/FreeAssocNorms")
 
 #Read in data
-FA = read.csv("./free_associates.csv")
+FA = read.csv("./CleanedInput/free_associates.csv")
 
 #Delete cases for which Meaning_R1 or Meaning_R2 = "-". 
 #There were 39 cases where Meaning_R1 = "-" and 84 cases where Meaning_R2 = '-'
@@ -61,7 +62,7 @@ xtabs(dum~gr, data=su)
      #This still has panels
 
 ggplot(su, aes(x=gr2,y=dum))+geom_bar(stat="identity", width = .9)
-ggsave("Figure1.pdf")
+ggsave("./Output/Figure1.pdf")
 
 #Make copy of database
 trend <- FA[FA$categ == "1_1" | FA$categ == "2_2", ]
@@ -83,13 +84,67 @@ all[is.na(all$M2), ]$M2 = 0
 all$max = pmax(all[,3], all[,4]) 
 
 
-all$biggest = all$max/all$tot
+all$biggestFAN = all$max/all$tot
 
-hist(all$biggest)
+hist(all$biggestFAN)
 nrow(all)
-#Import eDom norms
-eDomNorms <- read.csv("./eDom_norms.csv")
+#Import files
+
+     #Check OLD -  not identical beween files, need to manually reinspect
+
+eDomNorms <- read.csv("./CleanedInput/eDom_norms.csv")
 eDomNorms$imag = as.numeric(eDomNorms$imag)
+     eDomNorms$sp1p2 = NULL
+     eDomNorms$sp1p3 = NULL  
+     eDomNorms$sp1p4 = NULL 
+     eDomNorms$sp1p5 = NULL
+     eDomNorms$sp1p6 = NULL
+     eDomNorms$dictsp1p2 = NULL
+     eDomNorms$dictsp1p3 = NULL  
+     eDomNorms$dictsp1p4 = NULL 
+     eDomNorms$dictsp1p5 = NULL
+     eDomNorms$dictsp1p6 = NULL
+     eDomNorms$NumSenses = NULL
+     eDomNorms$NumMeanings = NULL
+     #eDomNorms$U = NULL
+     
+eLex <- read.table("./CleanedInput/elexiconData.subsetsOfAmbiguous.txt", sep = "\t", header = TRUE)
+     eLex$biggest = NULL
+     eLex$dominance = NULL
+#TwilleyUnion <- read.table("./CleanedInput/elexiconData.Union.Twilley.subsetsOfAmbiguous.txt", sep = "\t", header = TRUE)
+     #TwilleyUnion$ACC = NULL
+     #TwilleyUnion$RT = NULL
+     #TwilleyUnion$signTest = NULL
+     #TwilleyUnion$dominance = NULL
+     #TwilleyUnion$biggest = NULL
+     #TwilleyUnion$Twilleyp1 = NULL
+     #TwilleyUnion$Twilleyp2 = NULL
+     #TwilleyUnion$Twilleyp3 = NULL
+     #TwilleyUnion$Obs = NULL
+     #TwilleyUnion$Length = NULL
+     
+
+
+Descriptives <- read.table("./CleanedInput/itemData.ALL590ambiguous.txt", sep = "\t", header = TRUE)
+     Descriptives$MRC_Imag.f <- as.numeric(Descriptives$MRC_Imag.f) 
+     Descriptives$SingleWordOrPhrase = NULL
+     Descriptives$NONE_EMPTYLINEINOTHERFILE = NULL
+Twilley <-  read.table("./CleanedInput/itemMeans.dominance.Twilley.subsetsOfAmbiguous.txt", sep = "\t", header = TRUE)
+     Twilley$dominance = NULL
+     Twilley$biggest = NULL
+     Twilley$signTest = NULL
+
+#Merge files. NOTE: will need to go back through this and check to see what are exact replicates. Correlation = 1 then NULL.
+eDomNorms <- merge(eDomNorms, eLex, by.x = "word", by.y = "Word", all.x = TRUE)
+#eDomNorms <- merge(eDomNorms, TwilleyUnion, by.x = "word", by.y = "Word", all.x = TRUE)
+eDomNorms <- merge(eDomNorms, Descriptives, by.x = "word", by.y = "word_LOWERCASE", all.x = TRUE)
+eDomNorms <- merge(eDomNorms, Twilley, by.x = "word", by.y = "word", all.x = TRUE)
+
+
+
+
+     #Merge in 4 new files into EDom norms, keep all.x although they should overlap except for the Twilley norms which are a subset
+          #Rerun everything, check to see if correlates with ELP
 
 #merge in to file
 merged <- merge(eDomNorms, all, by.x = "word", by.y = "probe")
@@ -98,24 +153,28 @@ merged <- merge(eDomNorms, all, by.x = "word", by.y = "probe")
      #Note: might want to do Spearman or nonparametric correlation.
      #Violation of normality. Check assumptions of Spearman
      #Need to carefully consider how to deal with ties
-cor(merged$biggest.x, merged$biggest.y, method = "spearman")
+cor(merged$biggest, merged$biggestFAN, method = "spearman")
 no_ones <- merged[merged$biggest.y != 1, ]
-cor(no_ones$biggest.x, no_ones$biggest.y, method = "spearman")
-cor(no_ones$biggest.x, no_ones$biggest.y)
+cor(no_ones$biggest, no_ones$biggestFAN, method = "spearman")
+cor(no_ones$biggest, no_ones$biggestFAN)
 
 
 
 mergedclean = merged
 mergedclean$word = NULL
 mergedclean$wordCaseSensitive = NULL
-
+mergedclean$Word_CASE_SENSITIVE = NULL
+mergedclean$SouthFloridaAssociation_target = NULL
+mergedclean$Word_CASE_SENSITIVE = NULL
 
 
 M = cor(mergedclean)
 
+FM = as.data.frame(M)
+
 M[is.na(M)] <- 0
-col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
-corrplot(M, method = "number", type = "upper")
+#col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+#corrplot(M, method = "number", type = "upper")
 
 #From: http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram
 
@@ -139,23 +198,67 @@ cor.mtest <- function(mat, ...) {
 p.mat <- cor.mtest(M)
 head(p.mat[, 1:5])
 
-col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
-
-corrplot(M, method="color", col=col(200),  
+col <- colorRampPalette(c("#4477AA", "#77AADD", "#FFFFFF","#EE9988" , "#BB4444"))
+pdf("./Output/PLT.pdf")
+PLT1 <- corrplot(M, method="color", col=col(400),  
          type="upper", order="hclust", 
          #addCoef.col = "black", # Add coefficient of correlation
-         tl.col="black", tl.srt=45, #Text label color and rotation
+         tl.cex = .5, tl.col="black", tl.srt=45, #Text label color and rotation
          # Combine with significance
          p.mat = p.mat, sig.level = 0.05, insig = "blank", 
          # hide correlation coefficient on the principal diagonal
          diag=FALSE 
 )
+dev.off()
+
+pdf("./Output/PLT2.pdf")
+PLT2 <- corrplot(M, method="color", col=col(400),  
+                type="upper", order="hclust", 
+                #addCoef.col = "black", # Add coefficient of correlation
+                tl.cex = .5, tl.col="black", tl.srt=45, #Text label color and rotation
+                # Combine with significance
+                p.mat = p.mat, sig.level = 0.15, insig = "blank", 
+                # hide correlation coefficient on the principal diagonal
+                diag=FALSE 
+)
+dev.off()
+
+#####
 
 
 
+#check what happens when do all cors that have data
 
 
+M = cor(mergedclean,use="pairwise.complete.obs")
+p.mat <- cor.mtest(M)
+
+FM = as.data.frame(M)
+
+M[is.na(M)] <- 0
+p.mat <- cor.mtest(M)
+
+pdf("./Output/PLT3.pdf")
+PLT3 <- corrplot(M, method="color", col=col(400),  
+                 type="upper", order="hclust", 
+                 #addCoef.col = "black", # Add coefficient of correlation
+                 tl.cex = .5, tl.col="black", tl.srt=45, #Text label color and rotation
+                 # Combine with significance
+                 p.mat = p.mat, sig.level = 0.05, insig = "blank", 
+                 # hide correlation coefficient on the principal diagonal
+                 diag=FALSE 
+)
+dev.off()
 
 
+a=rownames(FM)
+b = as.numeric(FM$ACC)
+c = cbind(a,b)
+#--> shows that accuracy is correlated with biggest, not U or biggestFAN.  cor is in wroong dir, however
 
+a=rownames(FM)
+b = as.numeric(FM$RT)
+c = cbind(a,b)
+#---> shows strongest cor is U, followed by biggestFAN, then biggest (which were comparable, but
+#opposite directions
 
