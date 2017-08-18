@@ -279,5 +279,29 @@ print(summary(acc.lm))
 
 rt.lm = lm(RT ~Length + biggest +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
 print(summary(rt.lm))
+
+#Substitute biggestFAN
+acc.lm = lm(ACC ~Length + biggestFAN +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
+print(summary(acc.lm))
+
+rt.lm = lm(RT ~Length + biggestFAN +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
+print(summary(rt.lm))
+
+#Substitute biggestFAN
+acc.lm = lm(ACC ~Length + U +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
+print(summary(acc.lm))
+
+rt.lm = lm(RT ~Length + U +LgSUBTLWF + OLD.x + BG_Sum + NPhon + NSyll + NumSenses + transitive_verb + intransitive_verb + noun, data = nohybrids)
+print(summary(rt.lm))
+
+cor.test(merged$biggestFAN, merged$biggest)
+cor.test(merged$biggestFAN, merged$U)
+cor.test(merged$U, merged$biggest)
+
+#when returning to analyses, need to run simple correlations between 3 variables above for all dataset (max obs) vs union of three sets
+     #use complete.obs, not pairwise.complete.obs
+
+
+
      
 
