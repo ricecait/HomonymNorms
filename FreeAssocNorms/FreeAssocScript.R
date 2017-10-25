@@ -1,20 +1,25 @@
 #Load packages needed
-library(ggplot)
+library(ggplot2)
 library(corrplot)
 
 #set working directory
 setwd("/Users/caitlin/Box Sync/1-Box Folders/Toronto Project/Git/HomonymNorms/FreeAssocNorms")
 
 #Read in data
-FA = read.csv("./CleanedInput/free_associates.csv")
+#FA = read.csv("./CleanedInput/free_associates.csv")
+FA = read.csv("./CleanedInput/FAN Norms for analyses 10_22_17.csv")
 
-#Delete cases for which Meaning_R1 or Meaning_R2 = "-". 
-#There were 39 cases where Meaning_R1 = "-" and 84 cases where Meaning_R2 = '-'
-FA = FA[FA$Meaning_R1  %in% c("1","2","?1","?2") & FA$Meaning_R2  %in% c("1","2","?1","?2"),]
+#Delete cases for which Meaning_R1 or Meaning_R2 or Meaning_R23 = "-". 
+#There were 39 cases where Meaning_R1 = "-",  84 cases where Meaning_R2 = '-', and X cases where Meaning_R3 = '-'
+#FA = FA[FA$Meaning_R1  %in% c("1","2","?1","?2") & FA$Meaning_R2  %in% c("1","2","?1","?2") & FA$Meaning_R3  %in% c("1","2","?1","?2"),]
+#FA = droplevels(FA)
+
+#Delete cases for which Meaning_R1 or Meaning_R2 or Meaning_R23 = "3 | 4". 
+FA = FA[FA$Meaning_R1  %in% c("1","2","?1","?2", "-") & FA$Meaning_R2  %in% c("1","2","?1","?2", "-") & FA$Meaning_R3  %in% c("1","2","?1","?2", "-"),]
 FA = droplevels(FA)
 
 #Convert Meaning_R1 and Meaning_R2 to character vectors of the concatenated values
-FA$categ = as.factor(paste(FA$Meaning_R1,FA$Meaning_R2, sep = "_"))
+FA$categ = as.factor(paste(FA$Meaning_R1,FA$Meaning_R2, FA$Meaning_R3, sep = "_"))
 FA$dum = 1;
 
 #
@@ -24,45 +29,50 @@ su$dum = su$dum/n*100
 
 ggplot(su, aes(x=categ,y=dum))+geom_bar(stat="identity")
 
-su$gr = "Disagreement";
 
-su[su$categ == "1_1" | su$categ == "2_2",]$gr = "Certain Agreement";
-su[su$categ == "1_?1" | su$categ == "2_?2" | 
-        su$categ == "?1_1" | su$categ == "?2_2" | 
-        su$categ == "?1_?1" | su$categ == "?2_?2",]$gr = "Uncertain Agreement";
-
+#Make plot for two raters
+#su$gr = "Disagreement";
+#su[su$categ == "1_1_1" | su$categ == "2_2_2",]$gr = "Certain Agreement";
+#su[su$categ == "?1_?1_?1" | su$categ == "?1_?1_1" | 
+        #su$categ == "?1_1_?1" | su$categ == "?1_1_1" | su$categ == "?2_2_2" | su$categ == "1_1_?1" | su$categ == "2_?2_?2" | su$categ == "2_?2_2"| su$categ == "2_2_?2",]$gr = "Uncertain Agreement";						
 #override very low representative levels
+#su$s_categ = "All"
+#su[su$categ == "1_1" | su$categ == "2_2",]$s_categ = su[su$categ == "1_1" | su$categ == "2_2",]$categ
+#ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr,scale="free_x")
 
-su$s_categ = "All"
-su[su$categ == "1_1" | su$categ == "2_2",]$s_categ = su[su$categ == "1_1" | su$categ == "2_2",]$categ
-
-ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr,scale="free_x")
-
-
-#Caitlin's work
 
 #Proportion  agreement, disagreement, certain agreement, certain disagreement
 summary(FA$categ)
 nrow(FA)
 
-su$gr2 = "Disagreement";
-su[su$categ == "1_1",]$gr2 = "CA 1";
-su[su$categ == "2_2",]$gr2 = "CA 2"
-su[su$categ == "1_?1" | su$categ == "2_?2" | 
-        su$categ == "?1_1" | su$categ == "?2_2" | 
-        su$categ == "?1_?1" | su$categ == "?2_?2",]$gr2 = "UA";
-su[su$categ == "1_2" | su$categ == "2_1",]$gr2 = "CD";
-su[su$categ == "?1_?2" | su$categ == "?1_2" | su$categ == "?2_?1" |
-        su$categ == "?2_1" | su$categ == "1_?2" | 
-        su$categ == "2_?1",]$gr2 = "UD";
+#Make plot for three raters
+su$gr2 = "Other";
+su[su$categ == "1_1_1",]$gr2 = "CA 1";
+su[su$categ == "2_2_2",]$gr2 = "CA 2"
+#su[su$categ == "?1_?1_?1" | su$categ == "?1_?1_1" | 
+        #su$categ == "?1_1_?1" | su$categ == "?1_1_1" | 
+        #su$categ == "?2_2_2" | su$categ == "1_1_?1" | 
+        #su$categ == "2_?2_?2" | su$categ == "2_?2_2"| su$categ == "2_2_?2",]$gr2 = "UA";
+su[su$categ == "2_1_1" | su$categ == "2_1_2" | su$categ == "1_1_2" | su$categ == "1_2_1" | su$categ == "1_2_2" | su$categ == "2_2_1",]$gr2 = "CD"; 				
+#su[su$categ == "?2_1_2" | su$categ == "?2_2_1" | su$categ == "1_2_?1" |su$categ == "2_1_?1" | su$categ == "2_2_?1" | su$categ == "?1_1_2"| su$categ == "?1_2_?1"| 
+        #su$categ == "?1_2_1" | su$categ == "?1_2_2" | su$categ == "?2_?1_1" |su$categ == "?2_1_1" | su$categ == "1_?1_?1" | su$categ == "1_?1_1"| su$categ == "1_?1_2"|
+        #su$categ == "1_?2_?2" | su$categ == "1_?2_1" | su$categ == "1_1_?2" |su$categ == "1_2_?2" | su$categ == "2_?2_1" | su$categ == "2_?1_?1"| su$categ == "2_?1_1",]$gr2 = "UD";
+#su[su$categ == "-_-_-",]$gr2 = "OtherMeaning_A"   
+#su[su$categ == "?2_-_2" |su$categ == "?1_-_1" |su$categ == "2_-_2" |su$categ == "1_1_-" |su$categ == "?2_2_-" |su$categ == "?2_2_2" |su$categ == "?1_2_-" |su$categ == "1_-_-" 
+   #|su$categ == "1_-_1" |su$categ == "1_-_2" |su$categ == "1_?1_-" |su$categ == "2_2_-" |su$categ == "?1_?1_-" |su$categ == "?2_1_-" |su$categ == "-_1_1" ,]$gr2 = "PartDom_A"
 
-xtabs(dum~gr, data=su)
+     												
+xtabs(dum~gr2, data=su)
 
 #ggplot(su, aes(x=s_categ,y=dum))+geom_bar(stat="identity", width = 1) + facet_grid(~gr2,scale="free_x")
      #This still has panels
 
-ggplot(su, aes(x=gr2,y=dum))+geom_bar(stat="identity", width = .9)
-ggsave("./Output/Figure1.pdf")
+plot1 <- ggplot(su, aes(x=gr2,y=dum))+geom_bar(stat="identity", width = .95)
+plot1 + labs(x="Agreement type \n \n Figure 1. Proportion rater agreement by type", y="Proportion") 
+ggsave("./Output/AgreementFigure.tiff")
+
+
+###END PLOT SECTION###
 
 #Make copy of database
 trend <- FA[FA$categ == "1_1" | FA$categ == "2_2", ]
