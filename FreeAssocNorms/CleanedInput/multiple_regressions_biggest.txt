@@ -1,0 +1,701 @@
+             H.eDom       A.FAN        H.FAN     A.SUBTL     H.SUBTL      A.wiki
+rt        0.0430522 -0.09679425 -0.131809533 -0.07029978 -0.04781690 -0.09394942
+accuracy -0.1424200 -0.08535979 -0.001978328  0.06001424 -0.03159709 -0.05264384
+[1] ">>> rt in blp as a dependent variable"
+[1] ">>> biggest.of.interest = H.eDom"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.261 -27.115  -5.821  21.130 116.744 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     553.75325   21.42275  25.849  < 2e-16 ***
+data.sub[[biggest.of.interest]]   0.04505    0.15470   0.291   0.7711    
+OLD                               3.53101   10.83715   0.326   0.7448    
+coltN                             0.30853    0.33173   0.930   0.3530    
+FREQcount                        -0.01299    0.00178  -7.297 2.05e-12 ***
+nPhon                            -0.59446    3.32242  -0.179   0.8581    
+nSyll                            11.18813    6.61631   1.691   0.0917 .  
+startswith.capitalTRUE           17.90372    8.15507   2.195   0.0288 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 37.35 on 344 degrees of freedom
+Multiple R-squared:  0.1647,	Adjusted R-squared:  0.1477 
+F-statistic: 9.692 on 7 and 344 DF,  p-value: 5.079e-11
+
+[1] ">>> rt in blp as a dependent variable"
+[1] ">>> biggest.of.interest = A.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.334 -26.696  -6.259  20.982 120.036 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     573.007635  20.365801  28.136  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.183151   0.125074  -1.464   0.1440    
+OLD                               4.226010  10.784891   0.392   0.6954    
+coltN                             0.303291   0.330687   0.917   0.3597    
+FREQcount                        -0.012911   0.001771  -7.288 2.17e-12 ***
+nPhon                            -1.043233   3.288108  -0.317   0.7512    
+nSyll                            11.370738   6.576141   1.729   0.0847 .  
+startswith.capitalTRUE           17.534713   8.129868   2.157   0.0317 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 37.24 on 344 degrees of freedom
+Multiple R-squared:  0.1697,	Adjusted R-squared:  0.1528 
+F-statistic: 10.04 on 7 and 344 DF,  p-value: 1.955e-11
+
+[1] ">>> rt in blp as a dependent variable"
+[1] ">>> biggest.of.interest = H.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-70.720 -26.657  -6.238  21.961 120.351 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     588.453078  21.283625  27.648  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.339805   0.136394  -2.491   0.0132 *  
+OLD                               4.528324  10.721795   0.422   0.6730    
+coltN                             0.300284   0.328765   0.913   0.3617    
+FREQcount                        -0.013039   0.001759  -7.411  9.8e-13 ***
+nPhon                            -1.223494   3.268015  -0.374   0.7083    
+nSyll                            11.919827   6.541996   1.822   0.0693 .  
+startswith.capitalTRUE           14.701042   8.177304   1.798   0.0731 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 37.02 on 344 degrees of freedom
+Multiple R-squared:  0.1793,	Adjusted R-squared:  0.1626 
+F-statistic: 10.74 on 7 and 344 DF,  p-value: 3.002e-12
+
+[1] ">>> rt in blp as a dependent variable"
+[1] ">>> biggest.of.interest = A.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-68.84 -27.68  -5.33  21.41 118.27 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     562.397943  19.954815  28.184  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.072424   0.141381  -0.512   0.6088    
+OLD                               4.148581  10.837932   0.383   0.7021    
+coltN                             0.310774   0.331682   0.937   0.3494    
+FREQcount                        -0.012909   0.001789  -7.214 3.49e-12 ***
+nPhon                            -0.752555   3.290351  -0.229   0.8192    
+nSyll                            11.285983   6.594896   1.711   0.0879 .  
+startswith.capitalTRUE           17.825560   8.149496   2.187   0.0294 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 37.34 on 344 degrees of freedom
+Multiple R-squared:  0.1652,	Adjusted R-squared:  0.1482 
+F-statistic: 9.723 on 7 and 344 DF,  p-value: 4.677e-11
+
+[1] ">>> rt in blp as a dependent variable"
+[1] ">>> biggest.of.interest = H.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-69.731 -27.260  -5.524  20.924 116.839 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     557.711640  22.853132  24.404  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.003165   0.146543  -0.022   0.9828    
+OLD                               3.737830  10.819164   0.345   0.7299    
+coltN                             0.305716   0.334211   0.915   0.3610    
+FREQcount                        -0.013024   0.001782  -7.307 1.92e-12 ***
+nPhon                            -0.738406   3.329428  -0.222   0.8246    
+nSyll                            11.356071   6.638965   1.711   0.0881 .  
+startswith.capitalTRUE           17.812702   8.213344   2.169   0.0308 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 37.36 on 344 degrees of freedom
+Multiple R-squared:  0.1645,	Adjusted R-squared:  0.1475 
+F-statistic: 9.678 on 7 and 344 DF,  p-value: 5.282e-11
+
+[1] ">>> rt in blp as a dependent variable"
+[1] ">>> biggest.of.interest = A.wiki"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-69.073 -27.622  -5.788  20.740 117.829 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     564.021789  21.824566  25.843  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.070195   0.139503  -0.503   0.6152    
+OLD                               3.664018  10.810676   0.339   0.7349    
+coltN                             0.295741   0.332287   0.890   0.3741    
+FREQcount                        -0.012916   0.001788  -7.222 3.31e-12 ***
+nPhon                            -0.777916   3.291555  -0.236   0.8133    
+nSyll                            11.217740   6.598612   1.700   0.0900 .  
+startswith.capitalTRUE           17.378001   8.199872   2.119   0.0348 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 37.34 on 344 degrees of freedom
+Multiple R-squared:  0.1651,	Adjusted R-squared:  0.1482 
+F-statistic: 9.721 on 7 and 344 DF,  p-value: 4.697e-11
+
+[1] ">>> accuracy in blp as a dependent variable"
+[1] ">>> biggest.of.interest = H.eDom"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.48697 -0.01435  0.01201  0.02990  0.08241 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.947e-01  3.021e-02  32.925  < 2e-16 ***
+data.sub[[biggest.of.interest]] -5.583e-04  2.181e-04  -2.559 0.010912 *  
+OLD                             -1.315e-03  1.528e-02  -0.086 0.931503    
+coltN                           -8.128e-04  4.678e-04  -1.738 0.083182 .  
+FREQcount                        9.642e-06  2.510e-06   3.841 0.000146 ***
+nPhon                            6.098e-03  4.685e-03   1.302 0.193937    
+nSyll                           -4.956e-03  9.330e-03  -0.531 0.595611    
+startswith.capitalTRUE          -2.999e-02  1.150e-02  -2.608 0.009497 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05267 on 344 degrees of freedom
+Multiple R-squared:  0.1094,	Adjusted R-squared:  0.09131 
+F-statistic: 6.038 on 7 and 344 DF,  p-value: 1.177e-06
+
+[1] ">>> accuracy in blp as a dependent variable"
+[1] ">>> biggest.of.interest = A.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.49149 -0.01611  0.01190  0.03070  0.07374 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.765e-01  2.895e-02  33.736  < 2e-16 ***
+data.sub[[biggest.of.interest]] -3.160e-04  1.778e-04  -1.778   0.0764 .  
+OLD                             -3.143e-03  1.533e-02  -0.205   0.8377    
+coltN                           -7.946e-04  4.700e-04  -1.691   0.0918 .  
+FREQcount                        1.032e-05  2.518e-06   4.100 5.15e-05 ***
+nPhon                            7.203e-03  4.673e-03   1.541   0.1242    
+nSyll                           -6.784e-03  9.346e-03  -0.726   0.4684    
+startswith.capitalTRUE          -2.965e-02  1.155e-02  -2.566   0.0107 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05293 on 344 degrees of freedom
+Multiple R-squared:  0.1007,	Adjusted R-squared:  0.08243 
+F-statistic: 5.505 on 7 and 344 DF,  p-value: 5.15e-06
+
+[1] ">>> accuracy in blp as a dependent variable"
+[1] ">>> biggest.of.interest = H.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.49580 -0.01537  0.01369  0.03057  0.07997 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.566e-01  3.056e-02  31.304  < 2e-16 ***
+data.sub[[biggest.of.interest]] -7.739e-05  1.958e-04  -0.395   0.6930    
+OLD                             -3.794e-03  1.539e-02  -0.246   0.8055    
+coltN                           -7.903e-04  4.720e-04  -1.674   0.0950 .  
+FREQcount                        1.012e-05  2.526e-06   4.006 7.57e-05 ***
+nPhon                            7.634e-03  4.692e-03   1.627   0.1046    
+nSyll                           -6.705e-03  9.393e-03  -0.714   0.4758    
+startswith.capitalTRUE          -2.985e-02  1.174e-02  -2.542   0.0115 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05316 on 344 degrees of freedom
+Multiple R-squared:  0.09288,	Adjusted R-squared:  0.07442 
+F-statistic: 5.032 on 7 and 344 DF,  p-value: 1.897e-05
+
+[1] ">>> accuracy in blp as a dependent variable"
+[1] ">>> biggest.of.interest = A.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.49422 -0.01574  0.01398  0.03091  0.08038 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.409e-01  2.840e-02  33.135  < 2e-16 ***
+data.sub[[biggest.of.interest]]  1.246e-04  2.012e-04   0.619 0.536200    
+OLD                             -4.665e-03  1.542e-02  -0.302 0.762466    
+coltN                           -7.961e-04  4.720e-04  -1.687 0.092590 .  
+FREQcount                        9.920e-06  2.547e-06   3.895 0.000118 ***
+nPhon                            7.790e-03  4.682e-03   1.664 0.097079 .  
+nSyll                           -6.744e-03  9.385e-03  -0.719 0.472869    
+startswith.capitalTRUE          -2.912e-02  1.160e-02  -2.511 0.012504 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05314 on 344 degrees of freedom
+Multiple R-squared:  0.09348,	Adjusted R-squared:  0.07503 
+F-statistic: 5.068 on 7 and 344 DF,  p-value: 1.719e-05
+
+[1] ">>> accuracy in blp as a dependent variable"
+[1] ">>> biggest.of.interest = H.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.49451 -0.01538  0.01360  0.02990  0.07945 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.757e-01  3.246e-02  30.061  < 2e-16 ***
+data.sub[[biggest.of.interest]] -2.582e-04  2.081e-04  -1.240  0.21566    
+OLD                             -4.592e-03  1.537e-02  -0.299  0.76523    
+coltN                           -8.608e-04  4.746e-04  -1.814  0.07060 .  
+FREQcount                        1.040e-05  2.531e-06   4.110 4.95e-05 ***
+nPhon                            6.862e-03  4.728e-03   1.451  0.14765    
+nSyll                           -5.517e-03  9.428e-03  -0.585  0.55881    
+startswith.capitalTRUE          -3.089e-02  1.166e-02  -2.648  0.00846 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.05305 on 344 degrees of freedom
+Multiple R-squared:  0.09651,	Adjusted R-squared:  0.07813 
+F-statistic: 5.249 on 7 and 344 DF,  p-value: 1.042e-05
+
+[1] ">>> accuracy in blp as a dependent variable"
+[1] ">>> biggest.of.interest = A.wiki"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.49491 -0.01593  0.01252  0.02978  0.07487 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.845e-01  3.092e-02  31.844  < 2e-16 ***
+data.sub[[biggest.of.interest]] -3.703e-04  1.976e-04  -1.874  0.06179 .  
+OLD                             -4.401e-03  1.532e-02  -0.287  0.77399    
+coltN                           -8.462e-04  4.707e-04  -1.798  0.07312 .  
+FREQcount                        1.071e-05  2.534e-06   4.228 3.02e-05 ***
+nPhon                            7.482e-03  4.663e-03   1.604  0.10953    
+nSyll                           -7.481e-03  9.348e-03  -0.800  0.42407    
+startswith.capitalTRUE          -3.154e-02  1.162e-02  -2.715  0.00696 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0529 on 344 degrees of freedom
+Multiple R-squared:  0.1016,	Adjusted R-squared:  0.08336 
+F-statistic:  5.56 on 7 and 344 DF,  p-value: 4.419e-06
+
+              H.eDom         A.FAN       H.FAN     A.SUBTL     H.SUBTL       A.wiki
+rt        0.04966047 -0.0325056864 -0.09297282 -0.04361735 -0.06266642 -0.064741074
+accuracy -0.12992085 -0.0004936103  0.03045680 -0.01281673 -0.08882562  0.009583749
+[1] ">>> rt in elp as a dependent variable"
+[1] ">>> biggest.of.interest = H.eDom"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-106.102  -32.532   -5.742   26.047  201.645 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     607.423889  25.825549  23.520  < 2e-16 ***
+data.sub[[biggest.of.interest]]   0.016632   0.197195   0.084  0.93283    
+OLD                              25.349005  12.935030   1.960  0.05082 .  
+coltN                             0.172153   0.408893   0.421  0.67400    
+FREQcount                        -0.018442   0.002278  -8.094 9.63e-15 ***
+nPhon                            -2.733233   4.228529  -0.646  0.51846    
+nSyll                            10.295176   8.086947   1.273  0.20384    
+startswith.capitalTRUE           28.008182  10.238274   2.736  0.00654 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 47.89 on 350 degrees of freedom
+Multiple R-squared:  0.2222,	Adjusted R-squared:  0.2066 
+F-statistic: 14.28 on 7 and 350 DF,  p-value: 2.444e-16
+
+[1] ">>> rt in elp as a dependent variable"
+[1] ">>> biggest.of.interest = A.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-105.743  -32.346   -5.263   25.997  201.541 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     610.193793  24.499155  24.907  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.016575   0.159576  -0.104  0.91733    
+OLD                              25.458083  12.907355   1.972  0.04935 *  
+coltN                             0.170898   0.408830   0.418  0.67619    
+FREQcount                        -0.018446   0.002274  -8.112 8.51e-15 ***
+nPhon                            -2.809224   4.200035  -0.669  0.50403    
+nSyll                            10.355579   8.063820   1.284  0.19992    
+startswith.capitalTRUE           27.952604  10.241463   2.729  0.00667 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 47.89 on 350 degrees of freedom
+Multiple R-squared:  0.2222,	Adjusted R-squared:  0.2066 
+F-statistic: 14.28 on 7 and 350 DF,  p-value: 2.44e-16
+
+[1] ">>> rt in elp as a dependent variable"
+[1] ">>> biggest.of.interest = H.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-103.830  -32.226   -5.503   26.771  198.072 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     637.238233  25.879288  24.623  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.307840   0.174718  -1.762   0.0790 .  
+OLD                              25.914259  12.849802   2.017   0.0445 *  
+coltN                             0.162151   0.407038   0.398   0.6906    
+FREQcount                        -0.018473   0.002262  -8.168 5.76e-15 ***
+nPhon                            -3.204548   4.179535  -0.767   0.4438    
+nSyll                            10.806271   8.032238   1.345   0.1794    
+startswith.capitalTRUE           24.973100  10.333376   2.417   0.0162 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 47.68 on 350 degrees of freedom
+Multiple R-squared:  0.229,	Adjusted R-squared:  0.2136 
+F-statistic: 14.85 on 7 and 350 DF,  p-value: < 2.2e-16
+
+[1] ">>> rt in elp as a dependent variable"
+[1] ">>> biggest.of.interest = A.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-105.519  -32.086   -5.599   26.127  201.461 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     610.569190  23.775796  25.680  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.026175   0.179954  -0.145  0.88443    
+OLD                              25.575077  12.944384   1.976  0.04897 *  
+coltN                             0.173010   0.408939   0.423  0.67250    
+FREQcount                        -0.018413   0.002291  -8.036 1.43e-14 ***
+nPhon                            -2.791148   4.191565  -0.666  0.50592    
+nSyll                            10.335035   8.063719   1.282  0.20081    
+startswith.capitalTRUE           27.980627  10.235588   2.734  0.00658 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 47.89 on 350 degrees of freedom
+Multiple R-squared:  0.2222,	Adjusted R-squared:  0.2067 
+F-statistic: 14.29 on 7 and 350 DF,  p-value: 2.428e-16
+
+[1] ">>> rt in elp as a dependent variable"
+[1] ">>> biggest.of.interest = H.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-105.132  -32.849   -5.056   26.466  200.655 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     616.24981   27.51150  22.400  < 2e-16 ***
+data.sub[[biggest.of.interest]]  -0.07510    0.18643  -0.403  0.68732    
+OLD                              25.29397   12.90477   1.960  0.05078 .  
+coltN                             0.15199    0.41155   0.369  0.71211    
+FREQcount                        -0.01838    0.00228  -8.060 1.22e-14 ***
+nPhon                            -3.02887    4.23517  -0.715  0.47498    
+nSyll                            10.72358    8.11565   1.321  0.18725    
+startswith.capitalTRUE           27.50850   10.30255   2.670  0.00794 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 47.88 on 350 degrees of freedom
+Multiple R-squared:  0.2225,	Adjusted R-squared:  0.207 
+F-statistic: 14.31 on 7 and 350 DF,  p-value: 2.27e-16
+
+[1] ">>> rt in elp as a dependent variable"
+[1] ">>> biggest.of.interest = A.wiki"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-105.96  -32.45   -5.55   25.96  201.67 
+
+Coefficients:
+                                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                     608.55244   25.95763  23.444  < 2e-16 ***
+data.sub[[biggest.of.interest]]   0.00239    0.17773   0.013  0.98928    
+OLD                              25.42404   12.90390   1.970  0.04960 *  
+coltN                             0.17171    0.40936   0.419  0.67514    
+FREQcount                        -0.01846    0.00229  -8.060 1.22e-14 ***
+nPhon                            -2.77862    4.19372  -0.663  0.50804    
+nSyll                            10.34839    8.06408   1.283  0.20025    
+startswith.capitalTRUE           28.00490   10.30715   2.717  0.00691 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 47.89 on 350 degrees of freedom
+Multiple R-squared:  0.2222,	Adjusted R-squared:  0.2066 
+F-statistic: 14.28 on 7 and 350 DF,  p-value: 2.452e-16
+
+[1] ">>> accuracy in elp as a dependent variable"
+[1] ">>> biggest.of.interest = H.eDom"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.282992 -0.018361  0.006531  0.028824  0.059616 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.761e-01  2.181e-02  44.748  < 2e-16 ***
+data.sub[[biggest.of.interest]] -3.335e-04  1.666e-04  -2.002    0.046 *  
+OLD                             -3.799e-03  1.092e-02  -0.348    0.728    
+coltN                           -3.845e-04  3.454e-04  -1.113    0.266    
+FREQcount                        8.727e-06  1.924e-06   4.535 7.93e-06 ***
+nPhon                            8.565e-03  3.571e-03   2.398    0.017 *  
+nSyll                           -1.169e-02  6.830e-03  -1.711    0.088 .  
+startswith.capitalTRUE          -7.511e-03  8.647e-03  -0.869    0.386    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04045 on 350 degrees of freedom
+Multiple R-squared:  0.09842,	Adjusted R-squared:  0.08039 
+F-statistic: 5.458 on 7 and 350 DF,  p-value: 5.785e-06
+
+[1] ">>> accuracy in elp as a dependent variable"
+[1] ">>> biggest.of.interest = A.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.284386 -0.017850  0.008137  0.028619  0.058634 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.500e-01  2.081e-02  45.650  < 2e-16 ***
+data.sub[[biggest.of.interest]] -1.065e-05  1.355e-04  -0.079  0.93742    
+OLD                             -5.304e-03  1.096e-02  -0.484  0.62886    
+coltN                           -3.702e-04  3.473e-04  -1.066  0.28713    
+FREQcount                        9.034e-06  1.932e-06   4.677 4.16e-06 ***
+nPhon                            9.497e-03  3.568e-03   2.662  0.00813 ** 
+nSyll                           -1.272e-02  6.850e-03  -1.857  0.06410 .  
+startswith.capitalTRUE          -7.142e-03  8.699e-03  -0.821  0.41224    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04068 on 350 degrees of freedom
+Multiple R-squared:  0.08811,	Adjusted R-squared:  0.06987 
+F-statistic: 4.831 on 7 and 350 DF,  p-value: 3.265e-05
+
+[1] ">>> accuracy in elp as a dependent variable"
+[1] ">>> biggest.of.interest = H.FAN"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.285352 -0.017207  0.008371  0.028211  0.057130 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.407e-01  2.207e-02  42.628  < 2e-16 ***
+data.sub[[biggest.of.interest]]  9.025e-05  1.490e-04   0.606  0.54509    
+OLD                             -5.468e-03  1.096e-02  -0.499  0.61805    
+coltN                           -3.672e-04  3.471e-04  -1.058  0.29087    
+FREQcount                        9.031e-06  1.928e-06   4.683 4.05e-06 ***
+nPhon                            9.639e-03  3.564e-03   2.705  0.00717 ** 
+nSyll                           -1.286e-02  6.849e-03  -1.878  0.06123 .  
+startswith.capitalTRUE          -6.234e-03  8.812e-03  -0.708  0.47971    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04065 on 350 degrees of freedom
+Multiple R-squared:  0.08905,	Adjusted R-squared:  0.07083 
+F-statistic: 4.888 on 7 and 350 DF,  p-value: 2.795e-05
+
+[1] ">>> accuracy in elp as a dependent variable"
+[1] ">>> biggest.of.interest = A.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.287440 -0.017426  0.007769  0.029005  0.058621 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.582e-01  2.017e-02  47.497  < 2e-16 ***
+data.sub[[biggest.of.interest]] -1.331e-04  1.527e-04  -0.872  0.38397    
+OLD                             -4.563e-03  1.098e-02  -0.415  0.67811    
+coltN                           -3.618e-04  3.470e-04  -1.043  0.29781    
+FREQcount                        9.249e-06  1.944e-06   4.757 2.87e-06 ***
+nPhon                            9.462e-03  3.557e-03   2.660  0.00817 ** 
+nSyll                           -1.279e-02  6.842e-03  -1.869  0.06244 .  
+startswith.capitalTRUE          -7.159e-03  8.685e-03  -0.824  0.41034    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04063 on 350 degrees of freedom
+Multiple R-squared:  0.09007,	Adjusted R-squared:  0.07187 
+F-statistic: 4.949 on 7 and 350 DF,  p-value: 2.359e-05
+
+[1] ">>> accuracy in elp as a dependent variable"
+[1] ">>> biggest.of.interest = H.SUBTL"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.283608 -0.017542  0.006662  0.029716  0.057709 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.813e-01  2.323e-02  42.237  < 2e-16 ***
+data.sub[[biggest.of.interest]] -3.241e-04  1.574e-04  -2.058   0.0403 *  
+OLD                             -5.891e-03  1.090e-02  -0.541   0.5892    
+coltN                           -4.537e-04  3.476e-04  -1.305   0.1926    
+FREQcount                        9.377e-06  1.925e-06   4.870 1.69e-06 ***
+nPhon                            8.444e-03  3.577e-03   2.361   0.0188 *  
+nSyll                           -1.110e-02  6.854e-03  -1.620   0.1061    
+startswith.capitalTRUE          -9.190e-03  8.701e-03  -1.056   0.2916    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04043 on 350 degrees of freedom
+Multiple R-squared:  0.099,	Adjusted R-squared:  0.08098 
+F-statistic: 5.494 on 7 and 350 DF,  p-value: 5.242e-06
+
+[1] ">>> accuracy in elp as a dependent variable"
+[1] ">>> biggest.of.interest = A.wiki"
+
+Call:
+lm(formula = data.sub[[dep.value]] ~ data.sub[[biggest.of.interest]] + 
+    OLD + coltN + FREQcount + nPhon + nSyll + startswith.capital, 
+    data = data.sub)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.285917 -0.018352  0.007755  0.029405  0.058696 
+
+Coefficients:
+                                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                      9.562e-01  2.204e-02  43.382  < 2e-16 ***
+data.sub[[biggest.of.interest]] -7.806e-05  1.509e-04  -0.517  0.60528    
+OLD                             -5.290e-03  1.096e-02  -0.483  0.62954    
+coltN                           -3.793e-04  3.476e-04  -1.091  0.27597    
+FREQcount                        9.155e-06  1.945e-06   4.708 3.61e-06 ***
+nPhon                            9.449e-03  3.561e-03   2.654  0.00832 ** 
+nSyll                           -1.277e-02  6.847e-03  -1.865  0.06305 .  
+startswith.capitalTRUE          -7.650e-03  8.752e-03  -0.874  0.38263    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.04066 on 350 degrees of freedom
+Multiple R-squared:  0.08879,	Adjusted R-squared:  0.07057 
+F-statistic: 4.872 on 7 and 350 DF,  p-value: 2.917e-05

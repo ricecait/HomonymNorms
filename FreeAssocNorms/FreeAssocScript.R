@@ -3,11 +3,12 @@ library(ggplot2)
 library(corrplot)
 
 #set working directory
-setwd("/Users/caitlin/Box Sync/1-Box Folders/Toronto Project/Git/HomonymNorms/FreeAssocNorms")
+setwd("/Users/caitlinr/Box Sync/1-Box Folders/Toronto Project/Git/HomonymNorms/FreeAssocNorms")
 
 #Read in data
 #FA = read.csv("./CleanedInput/free_associates.csv")
-FA = read.csv("./CleanedInput/FAN Norms for analyses 10_22_17.csv")
+#FA = read.csv("./CleanedInput/FAN Norms for analyses 10_22_17.csv")
+FA = read.csv("./CleanedInput/FAN_3_Raters_AlgoFAN_Oct29.2017.csv")
 
 #Delete cases for which Meaning_R1 or Meaning_R2 or Meaning_R23 = "-". 
 #There were 39 cases where Meaning_R1 = "-",  84 cases where Meaning_R2 = '-', and X cases where Meaning_R3 = '-'
@@ -74,12 +75,12 @@ ggsave("./Output/AgreementFigure.tiff")
 
 ###END PLOT SECTION###
 
-#Make copy of database
-trend <- FA[FA$categ == "1_1" | FA$categ == "2_2", ]
+#Make copy of database with only certain agreement
+trend <- FA[FA$categ == "1_1_1" | FA$categ == "2_2_2", ]
 #nr = nrow(trend)
 tot = aggregate(dum ~ probe, data = trend, FUN = length)
-M1 = aggregate(dum ~ probe, data = trend[trend$categ == '1_1', ], FUN = length)
-M2 = aggregate(dum ~ probe, data = trend[trend$categ == '2_2', ], FUN = length)
+M1 = aggregate(dum ~ probe, data = trend[trend$categ == '1_1_1', ], FUN = length)
+M2 = aggregate(dum ~ probe, data = trend[trend$categ == '2_2_2', ], FUN = length)
 
 colnames(tot)[2] = 'tot'
 colnames(M1)[2] = "M1"
@@ -97,7 +98,24 @@ all$max = pmax(all[,3], all[,4])
 all$biggestFAN = all$max/all$tot
 
 hist(all$biggestFAN)
+#hist <- hist(all$biggestFAN)
 nrow(all)
+
+#Format and save histogram
+pdf("HistDomDist.pdf", file = "./Output/HistDomDist")
+hist(all$biggestFAN, 
+     main=" ", 
+     xlab="Meaning dominance", 
+     border="black", 
+     #col="black",
+     las=1, 
+     breaks=5
+     )
+dev.off()
+
+
+
+
 #Import files
 
      #Check OLD -  not identical beween files, need to manually reinspect
@@ -310,6 +328,12 @@ cor.test(merged$U, merged$biggest)
 
 #when returning to analyses, need to run simple correlations between 3 variables above for all dataset (max obs) vs union of three sets
      #use complete.obs, not pairwise.complete.obs
+
+
+############################################
+#11-06-2017
+#Re-do correlation plot with updated biggest estimate
+
 
 
 
