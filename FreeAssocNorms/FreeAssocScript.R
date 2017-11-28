@@ -102,8 +102,8 @@ hist(all$biggestFAN)
 nrow(all)
 
 #Format and save histogram
-pdf("HistDomDist.pdf", file = "./Output/HistDomDist")
-hist(all$biggestFAN, 
+pdf("HistDomDist.pdf", file = "./Output/HistDomDist.pdf")
+hist(all$biggestFAN, freq = FALSE,
      main=" ", 
      xlab="Meaning dominance", 
      border="black", 
@@ -111,6 +111,14 @@ hist(all$biggestFAN,
      las=1, 
      breaks=5
      )
+dev.off()
+
+#Make density plot
+
+pdf("DensityMeanDom.pdf", file = "./Output/DensityMeanDom.pdf")
+d <- density(all$biggestFAN)
+plot(d, main="Density of meaning dominance")
+polygon(d, col="darkgrey", border="darkgrey")
 dev.off()
 
 
